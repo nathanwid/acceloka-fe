@@ -9,7 +9,7 @@ export default function BookedTicketForm() {
   const [bookedTicketId, setBookedTicketId] = useState("");
   const { replace } = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition(); 
+  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
