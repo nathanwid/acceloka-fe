@@ -1,6 +1,6 @@
 "use client";
 
-import { bookTickets } from "@/lib/api";
+import { bookTickets, generateExcelReport } from "@/lib/api";
 import { addToCart, decreaseQuantity, increaseQuantity, removeFromCart, deleteCart } from "@/lib/redux/cartSlice";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { Ticket } from "@/lib/types";
@@ -109,17 +109,10 @@ export const CreateBookingButton = ({ tickets }: { tickets: { ticketCode: string
 	)
 }
 
-export const ExportButton = ({ bookedTicketId}: { bookedTicketId: number }) => {
+export const ExportButton = ({ bookedTicketId }: { bookedTicketId: number }) => {
   const handleExport = async () => {
     try {
-      const res = await fetch(`http://localhost:5257/api/v1/generate-excel-report/${bookedTicketId}`);
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.errors?.[0] || "Failed to fetch booked tickets");
-      }
-
-      const blob = await res.blob();
+      const blob = await generateExcelReport(bookedTicketId);
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       
@@ -128,11 +121,10 @@ export const ExportButton = ({ bookedTicketId}: { bookedTicketId: number }) => {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-    }
-    catch (error) {
+    } catch (error) {
       alert(error instanceof Error ? error.message : "Export failed");
     }
-  }
+  };
 
   return (
     <button 
@@ -142,7 +134,7 @@ export const ExportButton = ({ bookedTicketId}: { bookedTicketId: number }) => {
       Export
     </button>
   );
-}
+};
 
 export const SubmitButton = ( {label, isPending }: { label: string, isPending: boolean }) => {
 	const className = clsx(

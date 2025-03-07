@@ -77,7 +77,7 @@ export const generateExcelReport = async (bookedTicketId: number) => {
     throw new Error(errorData.errors?.[0] || "Failed to generate excel report");
   }
 
-  return res.json();
+  return res.blob();
 }
 
 export const bookTickets = async (bookingDate: string, tickets: { ticketCode: string, quantity: number }[]) => {
