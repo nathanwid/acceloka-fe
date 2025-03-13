@@ -14,12 +14,12 @@ export default function Cart() {
 				<thead className="bg-amber-400">
 					<tr>
 						<th className="w-12 text-base py-3 px-6 text-center text-slate-800">#</th>
-						<th className="w-64 text-base py-3 px-6 text-center text-slate-800">Name</th>
+						<th className="w-56 text-base py-3 px-6 text-center text-slate-800">Name</th>
 						<th className="w-40 text-base py-3 px-6 text-center text-slate-800">Date</th>
-						<th className="w-32 text-base py-3 px-6 text-center text-slate-800">Price</th>
-						<th className="w-40 text-base py-3 px-6 text-center text-slate-800">Quantity</th>
-						<th className="w-32 text-base py-3 px-6 text-center text-slate-800">Total</th>
-						<th className="w-32 text-base py-3 px-6 text-center text-slate-800"></th>
+						<th className="w-28 text-base py-3 px-6 text-center text-slate-800">Price</th>
+						<th className="w-36 text-base py-3 px-6 text-center text-slate-800">Quantity</th>
+						<th className="w-28 text-base py-3 px-6 text-center text-slate-800">Total</th>
+						<th className="w-24 text-base py-3 px-6 text-center text-slate-800"></th>
 					</tr>
 				</thead>
 				<tbody className="bg-white">

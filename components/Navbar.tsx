@@ -6,24 +6,22 @@ import { ShoppingCartIcon } from 'lucide-react'
 import { useAppSelector } from '@/lib/redux/hooks';
 import { useRouter } from 'next/navigation';
 
-export default function Header() {
+export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const router = useRouter();
   
   return (
     <div className="navbar w-full bg-base-100 px-36 shadow-md fixed top-0 z-50 border-b">
-      <div className="flex-1">
-        <div className="flex-none bg-slate-800 hover:bg-slate-900 rounded-3xl">
-          <Link href="/" className="btn btn-ghost text-amber-400 font-bold text-2xl">ACCELOKA</Link>
-        </div>
-        <div className="flex-none mx-3">
-          <ul className="menu menu-horizontal px-1">
-            <li className="text-lg font-medium mx-2"><Link href="/">Home</Link></li>
-            <li className="text-lg font-medium mx-2"><Link href="/booking">Booking</Link></li>
-          </ul>
-        </div>
+      <div className="flex-1 flex items-center">
+        <Link href="/" className="btn btn-ghost text-amber-400 font-bold text-2xl bg-slate-800 hover:bg-slate-900 rounded-3xl px-4">
+          ACCELOKA
+        </Link>
+        <ul className="menu menu-horizontal px-1 ml-5">
+          <li className="text-lg font-medium mx-2"><Link href="/">Home</Link></li>
+          <li className="text-lg font-medium mx-2"><Link href="/booking">Booking</Link></li>
+        </ul>
       </div>
-      <div className="flex-none gap-4">
+      <div className="flex flex-none gap-4">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StoreProvider from "./StoreProvider";
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en" data-theme="corporate">
         <body>
-          <Header />
+          <Navbar />
           <main className="min-h-[100vh] mx-32 my-24">{children}</main>
           <Footer />
         </body>

@@ -51,7 +51,7 @@ export const DecreaseQuantityButton = ({ ticketCode }: { ticketCode: string }) =
 	return (
 		<button 
 			onClick={() => dispatch(decreaseQuantity(ticketCode))}
-			className="rounded-md border p-1 bg-slate-800 hover:bg-slate-900"
+			className="rounded-md border p-1 bg-slate-800 hover:bg-slate-900 hover:cursor-pointer"
 		>
 			<Minus size={16} color="#fff" />
 		</button>
@@ -64,7 +64,7 @@ export const IncreaseQuantityButton = ({ ticketCode }: { ticketCode: string }) =
 	return (
 		<button 
 			onClick={() => dispatch(increaseQuantity(ticketCode))}
-			className="rounded-md border p-1 bg-slate-800 hover:bg-slate-900"
+			className="rounded-md border p-1 bg-slate-800 hover:bg-slate-900 hover:cursor-pointer"
 		>
 			<Plus size={16} color="#fff"/>
 		</button>
@@ -77,7 +77,7 @@ export const RemoveButton = ({ ticketCode }: { ticketCode: string }) => {
 	return (
 		<button 
 		onClick={() => dispatch(removeFromCart(ticketCode))}
-		className="rounded-md border p-1 bg-red-600 hover:bg-red-700"
+		className="rounded-md border p-1 bg-red-600 hover:bg-red-700 hover:cursor-pointer"
 	>
 		<Trash2 size={20} color="#fff" />
 	</button>

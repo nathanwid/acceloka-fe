@@ -14,9 +14,7 @@ export default async function BookingPage({
       <div className="mb-8">
         <h1 className="text-2xl font-bold">Bookings</h1>
       </div>
-      <div className="mb-12">
-        <BookedTicketForm />
-      </div>
+      <BookedTicketForm />
       <Suspense key={bookedTicketId} fallback={<p className="text-center mt-4">Loading...</p>}>
         {<BookedTicketTable bookedTicketId={bookedTicketId} />}
       </Suspense>

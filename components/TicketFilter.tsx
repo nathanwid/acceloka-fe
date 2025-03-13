@@ -51,7 +51,7 @@ export default function TicketFilter() {
 
   return (
     <>
-      <div className="collapse bg-base-100 border-base-300 border rounded-lg shadow-xs">
+      <div className="collapse bg-base-100 border-base-300 border rounded-lg shadow-2xs">
         <input type="checkbox" />
         <div className="collapse-title font-semibold">Narrow down your ticket options!</div>
         <div className="collapse-content text-sm">
