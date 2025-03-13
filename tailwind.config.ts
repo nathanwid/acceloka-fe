@@ -14,10 +14,4 @@ export default {
       },
     },
   },
-  plugins: [
-    require("daisyui"),
-  ],
-  daisyui: {
-    themes: ["corporate"],
-  },
 } satisfies Config;
