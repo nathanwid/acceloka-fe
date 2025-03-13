@@ -1,18 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
-
-type Ticket = {
-  ticketCode: string;
-  ticketName: string;
-  categoryName: string;
-  eventDate: string;
-  quota: number;
-  price: number;
-  quantity: number;
-};
+import { AddedTicket } from "../types";
 
 type CartState = {
-  cart: Ticket[];
+  cart: AddedTicket[];
 };
 
 const initialState: CartState = {
@@ -23,7 +14,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Omit<Ticket, "quantity">>) => {
+    addToCart: (state, action: PayloadAction<Omit<AddedTicket, "quantity">>) => {
       const existingTicket = state.cart.find((item) => item.ticketCode === action.payload.ticketCode);
       if (!existingTicket) {
         state.cart.push({ ...action.payload, quantity: 1 });
@@ -57,11 +48,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity, removeFromCart, deleteCart } = cartSlice.actions;
-export default cartSlice.reducer;
-
 export function CartLoader() {
-  const [cart, setCart] = useState<Ticket[]>([]);
+  const [cart, setCart] = useState<AddedTicket[]>([]);
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(storedCart);
@@ -69,3 +57,6 @@ export function CartLoader() {
 
   return null;
 }
+
+export const { addToCart, increaseQuantity, decreaseQuantity, removeFromCart, deleteCart } = cartSlice.actions;
+export default cartSlice.reducer;
